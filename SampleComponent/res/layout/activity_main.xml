@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,17 +6,40 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
 
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normal TimePicker"
+        />
+    <TimePicker 
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        />
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_margin="10dip"
+        android:background="@android:color/black"
+        
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom TimePicker"
+        />
+    
     <jp.classmethod.android.componentlibrary.widget.UITimePicker
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/uITimePicker1"
         app:unit="5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="14dp" />
+        android:layout_marginLeft="10dip"
+        />
 
-</RelativeLayout>
+</LinearLayout>
