@@ -28,7 +28,7 @@ public class GBNumberPickerController extends UITimePickerController {
 			
 			Object[] params = {
 				0,
-				3, 
+				maxIdx, 
 				items
 			};
 			m.invoke(numberPicker, params);
