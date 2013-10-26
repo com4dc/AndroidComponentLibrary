@@ -2,6 +2,7 @@ package jp.classmethod.android.componentlibrary.widget;
 
 import java.lang.reflect.Field;
 
+
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.widget.NumberPicker;
@@ -9,11 +10,6 @@ import android.widget.TimePicker;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class ICSNumberPickerController extends UITimePickerController {
-
-	@Override
-	public void setIncrementTimeUnit(int unit) {
-		this.unit = unit;
-	}
 
 	@Override
 	public void overrideTimePicker(UITimePicker picker) {

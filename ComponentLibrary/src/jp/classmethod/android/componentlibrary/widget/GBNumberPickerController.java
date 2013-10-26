@@ -4,14 +4,10 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+
 import android.widget.TimePicker;
 
 public class GBNumberPickerController extends UITimePickerController {
-
-	@Override
-	public void setIncrementTimeUnit(int unit) {
-		this.unit = unit;
-	}
 
 	@Override
 	public void overrideTimePicker(UITimePicker picker) {

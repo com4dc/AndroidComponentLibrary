@@ -3,6 +3,8 @@ package jp.classmethod.android.componentlibrary.widget;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.classmethod.android.componentlibrary.exception.IllegalNumberException;
+
 /**
  * TimePickerをSDKバージョンに依らずに操作するためのControllerクラス. <br>
  * @author komuro
@@ -23,7 +25,12 @@ public abstract class UITimePickerController {
 	 * 何分ごとに表示するか
 	 * @param unit minutes
 	 */
-	public abstract void setIncrementTimeUnit(int unit);
+	public void setIncrementTimeUnit(int unit) throws IllegalNumberException {
+		if(MINUTES_MAX % unit != 0 || unit > 30) {
+			throw new IllegalNumberException();
+		}
+		this.unit = unit;
+	}
 	
 	/**
 	 * TimePickerをもろもろ上書き. インスタンス生成後に呼ぶ
