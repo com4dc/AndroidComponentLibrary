@@ -3,13 +3,21 @@ package jp.classmethod.android.componentlibrary.widget;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
-public class GBNumberPickerController {
+import android.widget.TimePicker;
 
-	public static void setNumberPickerConfig(Field f, ExTimePicker picker) {
+public class GBNumberPickerController extends UITimePickerController {
+
+	@Override
+	public void setIncrementTimeUnit(int unit) {
+		this.unit = unit;
+	}
+
+	@Override
+	public void overrideTimePicker(UITimePicker picker) {
 		try {
+			Field f = TimePicker.class.getDeclaredField("mMinutePicker");
+			f.setAccessible(true);
 			Object numberPicker = f.get(picker);
 			Class<?>[] args = {
 				int.class,
@@ -19,10 +27,13 @@ public class GBNumberPickerController {
 			Class<?> clazz = Class.forName("android.widget.NumberPicker");
 			Method m = clazz.getDeclaredMethod("setRange", args);
 			
+			String[] items = createMinItems(unit);
+			maxIdx = items.length - 1;
+			
 			Object[] params = {
 				0,
 				3, 
-				createItems()
+				items
 			};
 			m.invoke(numberPicker, params);
 		} catch (IllegalArgumentException e) {
@@ -35,21 +46,8 @@ public class GBNumberPickerController {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
 		}
-	}
-
-	private static String[] createItems() {
-		List<String> items = new ArrayList<String>();
-		for(int i=0; i<4; i++) {
-			items.add(String.valueOf(i*15));
-		}
-		
-		String[] res = new String[items.size()];
-		int idx = 0;
-		for(String val : items) {
-			res[idx++] = val;
-		}
-		
-		return res;
 	}
 }
