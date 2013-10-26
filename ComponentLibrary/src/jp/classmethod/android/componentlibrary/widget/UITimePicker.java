@@ -52,6 +52,9 @@ public class UITimePicker extends TimePicker {
 	public Integer getCurrentMinute() {
 		// 選択している値を返します
 		int selectIdx = super.getCurrentMinute();
+		if(timePickerController == null) {
+			return selectIdx;
+		}
 		int min = selectIdx * timePickerController.unit;
 		return min;
 	}

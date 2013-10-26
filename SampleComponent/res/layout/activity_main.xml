@@ -11,7 +11,7 @@
     <jp.classmethod.android.componentlibrary.widget.UITimePicker
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/uITimePicker1"
-        app:unit="10"
+        app:unit="5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

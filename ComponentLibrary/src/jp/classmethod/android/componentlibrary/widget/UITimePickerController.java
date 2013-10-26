@@ -47,7 +47,12 @@ public abstract class UITimePickerController {
 		// 選択肢の数
 		int itemLength = MINUTES_MAX / unit;
 		for(int i=0; i<itemLength; i++) {
-			itemList.add(String.valueOf(i*unit));
+			int num = i * unit;
+			if(num < 10) {
+				itemList.add("0" + String.valueOf(num));
+			} else {
+				itemList.add(String.valueOf(num));
+			}
 		}
 		return itemList.toArray(new String[0]);
 	}
