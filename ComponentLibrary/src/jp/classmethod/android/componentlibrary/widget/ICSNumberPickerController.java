@@ -8,6 +8,11 @@ import android.os.Build;
 import android.widget.NumberPicker;
 import android.widget.TimePicker;
 
+/**
+ * ICS以降のNumberPickerの操作を行うクラス
+ * @author komuro
+ *
+ */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class ICSNumberPickerController extends UITimePickerController {
 

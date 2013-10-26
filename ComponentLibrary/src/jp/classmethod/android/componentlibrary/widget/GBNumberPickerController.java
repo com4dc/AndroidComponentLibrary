@@ -7,6 +7,11 @@ import java.lang.reflect.Method;
 
 import android.widget.TimePicker;
 
+/**
+ * SDKVersion 10以下の場合のNumberPickerコントローラーの操作を行うクラス
+ * @author komuro
+ *
+ */
 public class GBNumberPickerController extends UITimePickerController {
 
 	@Override
