@@ -11,14 +11,14 @@ import android.widget.TimePicker;
  * Custom TimePicker Widget<br>
  * 指定された分ごとの選択肢を表示します. <br>
  * <ul>
- * 	<li>xmlで指定する場合は、カスタム属性を追加します. <br>
- *  <strong>宣言：</strong>jp.classmethod.android.componentlibrary.widget.UITimePicker <br>
- *  <strong>名前空間：</strong>xmlns:app="http://schemas.android.com/apk/res-auto" <br>
- *  <strong>属性値指定：</strong>app:unit="10" <br>
- *  </li>
+ * <li>xmlで指定する場合は、カスタム属性を追加します. <br>
+ * 	<strong>宣言：</strong>jp.classmethod.android.componentlibrary.widget.UITimePicker <br>
+ * 	<strong>名前空間：</strong>xmlns:app="http://schemas.android.com/apk/res-auto" <br>
+ * 	<strong>属性値指定：</strong>app:unit="10" <br>
+ * </li>
  * <li>コード上で指定する場合は、overrideTimePicker を自分で呼び出す必要があります<br>
- * <strong>手順１：</strong>setIncrementTimeUnit()で何分ごとにするかを指定する<br>
- * <strong>手順２：</strong>overrideTimePicker()でTimePickerの描画を上書き
+ * 	<strong>手順１：</strong>setIncrementTimeUnit()で何分ごとにするかを指定する<br>
+ * 	<strong>手順２：</strong>overrideTimePicker()でTimePickerの描画を上書き
  * </li>
  * </ul>
  * 
