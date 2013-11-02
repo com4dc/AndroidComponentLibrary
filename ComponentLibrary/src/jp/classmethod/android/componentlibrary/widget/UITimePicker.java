@@ -1,10 +1,15 @@
 package jp.classmethod.android.componentlibrary.widget;
 
+import java.util.Calendar;
+import java.util.Locale;
+
 import jp.classmethod.android.componentlibrary.R;
 import jp.classmethod.android.componentlibrary.exception.IllegalNumberException;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.TimePicker;
 
 /**
@@ -47,6 +52,8 @@ public class UITimePicker extends TimePicker {
 	public UITimePicker(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
+
+	
 	
 	@Override
 	public Integer getCurrentMinute() {
@@ -82,6 +89,32 @@ public class UITimePicker extends TimePicker {
 			attrArray.recycle();
 		}
 		// 上書き
-		timePickerController.overrideTimePicker(this);
+		timePickerController.overrideTimePicker(this, Calendar.getInstance(Locale.getDefault()));
 	}
+
+	@Override
+	public void setCurrentMinute(Integer currentMinute) {
+		if(timePickerController != null) {
+			// 余剰を計算
+			int selectIdx = currentMinute / timePickerController.unit;
+			
+			int odd = currentMinute % timePickerController.unit;
+			if(odd > 0) {
+				// 余剰がある場合は強制的に切り上げ
+				selectIdx += 1;
+				
+				// MAXと同値でReset
+				if(timePickerController.getItemLength() == selectIdx) {
+					selectIdx = 0;
+				}
+			}
+			
+			super.setCurrentMinute(selectIdx);
+		} else {
+			super.setCurrentMinute(currentMinute);
+		}
+	}
+	
+	
+	
 }

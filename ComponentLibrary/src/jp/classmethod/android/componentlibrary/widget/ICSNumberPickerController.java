@@ -1,6 +1,7 @@
 package jp.classmethod.android.componentlibrary.widget;
 
 import java.lang.reflect.Field;
+import java.util.Calendar;
 
 
 import android.annotation.TargetApi;
@@ -17,7 +18,7 @@ import android.widget.TimePicker;
 public class ICSNumberPickerController extends UITimePickerController {
 
 	@Override
-	public void overrideTimePicker(UITimePicker picker) {
+	public void overrideTimePicker(UITimePicker picker, Calendar calendar) {
 		try {
 			Field f = TimePicker.class.getDeclaredField("mMinuteSpinner");
 			f.setAccessible(true);
@@ -29,6 +30,10 @@ public class ICSNumberPickerController extends UITimePickerController {
 			numberPicker.setMaxValue(maxIdx);
 			numberPicker.setDisplayedValues(items);
 			numberPicker.setWrapSelectorWheel(true);
+		
+			// TODO: Minutes変更時にHourが追随するようにNumberPicker.onValueChangedListenerの設定が必要
+			picker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
+			picker.setCurrentMinute(calendar.get(Calendar.MINUTE));
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

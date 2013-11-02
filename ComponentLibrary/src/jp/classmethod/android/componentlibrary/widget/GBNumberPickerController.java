@@ -3,6 +3,7 @@ package jp.classmethod.android.componentlibrary.widget;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Calendar;
 
 
 import android.widget.TimePicker;
@@ -15,7 +16,7 @@ import android.widget.TimePicker;
 public class GBNumberPickerController extends UITimePickerController {
 
 	@Override
-	public void overrideTimePicker(UITimePicker picker) {
+	public void overrideTimePicker(UITimePicker picker, Calendar calendar) {
 		try {
 			Field f = TimePicker.class.getDeclaredField("mMinutePicker");
 			f.setAccessible(true);
@@ -37,6 +38,11 @@ public class GBNumberPickerController extends UITimePickerController {
 				items
 			};
 			m.invoke(numberPicker, params);
+			
+			// TODO: Minutes変更時にHourが追随するようにNumberPicker.onValueChangedListenerの設定が必要
+			
+			picker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
+			picker.setCurrentMinute(calendar.get(Calendar.MINUTE));
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
@@ -49,6 +55,8 @@ public class GBNumberPickerController extends UITimePickerController {
 			e.printStackTrace();
 		} catch (NoSuchFieldException e) {
 			e.printStackTrace();
-		}
+		}		
 	}
+
+	
 }

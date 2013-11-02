@@ -1,6 +1,7 @@
 package jp.classmethod.android.componentlibrary.widget;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import jp.classmethod.android.componentlibrary.exception.IllegalNumberException;
@@ -34,8 +35,10 @@ public abstract class UITimePickerController {
 	
 	/**
 	 * TimePickerをもろもろ上書き. インスタンス生成後に呼ぶ
+	 * @param picker
+	 * @param calendar
 	 */
-	public abstract void overrideTimePicker(UITimePicker picker);
+	public abstract void overrideTimePicker(UITimePicker picker, Calendar calendar);
 
 	/**
 	 * 選択肢Itemを作成する
@@ -55,6 +58,19 @@ public abstract class UITimePickerController {
 			}
 		}
 		return itemList.toArray(new String[0]);
+	}
+	
+	/**
+	 * Indexの最大値を返す
+	 * @return
+	 */
+	public int getItemLength() {
+		return MINUTES_MAX / unit;
+	}
+
+	public void overrideTimePicker(UITimePicker picker) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
