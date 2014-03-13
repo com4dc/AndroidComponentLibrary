@@ -1,8 +1,13 @@
 apply plugin: 'android'
 
+repositories {
+    mavenCentral()
+    maven { url 'https://raw.github.com/Nkzn/AndroidComponentLibrary/enhancement/add-maven-repository/repository' }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile project(':ComponentLibrary')
+    compile 'jp.classmethod.android:componentlibrary:0.0.1'
 }
 
 android {
