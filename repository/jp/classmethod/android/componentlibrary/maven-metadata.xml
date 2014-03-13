@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>jp.classmethod.android</groupId>
+  <artifactId>componentlibrary</artifactId>
+  <version>0.0.1</version>
+  <versioning>
+    <versions>
+      <version>0.0.1</version>
+    </versions>
+    <lastUpdated>20140313124756</lastUpdated>
+  </versioning>
+</metadata>
