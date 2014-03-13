@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 repositories {
     mavenCentral()
-    maven { url 'https://raw.github.com/Nkzn/AndroidComponentLibrary/enhancement/add-maven-repository/repository' }
+    maven { url 'https://raw.github.com/com4dc/AndroidComponentLibrary/master/repository' }
 }
 
 dependencies {
