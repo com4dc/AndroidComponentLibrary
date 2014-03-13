@@ -1,0 +1,2 @@
+include ':ComponentLibrary'
+include ':SampleComponent'
