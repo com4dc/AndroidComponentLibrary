@@ -52,8 +52,6 @@ public class UITimePicker extends TimePicker {
 	public UITimePicker(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
-
-	
 	
 	@Override
 	public Integer getCurrentMinute() {

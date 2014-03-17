@@ -11,8 +11,8 @@ public final class SoundHelper {
 
 	/**
 	 * SoundPoolにLoadして、再生する
-	 * @param context
-	 * @param resId
+	 * @param context {@link Context}
+	 * @param resId 鳴らす音声のResource ID
 	 */
 	public static final void playSound(Context context, int resId) {
 		soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);

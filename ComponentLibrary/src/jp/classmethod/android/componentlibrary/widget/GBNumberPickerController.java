@@ -43,6 +43,9 @@ public class GBNumberPickerController extends UITimePickerController {
 			
 			picker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
 			picker.setCurrentMinute(calendar.get(Calendar.MINUTE));
+			
+			// 編集不可
+			picker.setDescendantFocusability(TimePicker.FOCUS_BLOCK_DESCENDANTS);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

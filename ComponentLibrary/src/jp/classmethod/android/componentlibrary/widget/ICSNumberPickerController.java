@@ -30,10 +30,14 @@ public class ICSNumberPickerController extends UITimePickerController {
 			numberPicker.setMaxValue(maxIdx);
 			numberPicker.setDisplayedValues(items);
 			numberPicker.setWrapSelectorWheel(true);
-		
+			
 			// TODO: Minutes変更時にHourが追随するようにNumberPicker.onValueChangedListenerの設定が必要
 			picker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
 			picker.setCurrentMinute(calendar.get(Calendar.MINUTE));
+			
+			// 編集不可
+			picker.setDescendantFocusability(TimePicker.FOCUS_BLOCK_DESCENDANTS);
+			
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
